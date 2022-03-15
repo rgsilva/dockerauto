@@ -1,0 +1,11 @@
+version: '3'
+services:
+  dockerauto:
+    container_name: dockerauto
+    volumes:
+      - /:/host:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - HOST_PREFIX=/host
+      - DOCKER_SOCK=unix://var/run/docker.sock
+    build: .
